@@ -23,15 +23,20 @@ def main():
             if event.type == pg.QUIT: return
 
         key_list = pg.key.get_pressed() #練習10-3：全キー状態の取得
+        mv = [-1,0] #何も押さないときの移動量
         if key_list[pg.K_UP]: #上矢印キーが押されたら
-            kk_rct.move_ip((0,-1)) #縦に-1動かす
+            #kk_rct.move_ip((0,-1)) #縦に-1動かす
+            mv[1] -= 1
         if key_list[pg.K_DOWN]: #下矢印キーが押されたら
-                    kk_rct.move_ip((0,+1)) #縦に+1動かす
+            #kk_rct.move_ip((0,+1)) #縦に+1動かす
+            mv[1] += 1
         if key_list[pg.K_LEFT]: #左矢印キーが押されたら
-                    kk_rct.move_ip((-1,0)) #横に-1動かす
+            #kk_rct.move_ip((-1,0)) #横に-1動かす
+            mv[0] -= 1
         if key_list[pg.K_RIGHT]: #右矢印キーが押されたら
-                    kk_rct.move_ip((+2,0)) #横に+1動かす/#横に+2動かす
-        kk_rct.move_ip((-1,0)) #背景と同じ速度で左に流れる
+            #kk_rct.move_ip((+2,0)) #横に+1動かす/#横に+2動かす
+            mv[0] +=2
+        kk_rct.move_ip(mv) #背景と同じ速度で左に流れる
 
         x=tmr%3200 #練習5：背景画像の横スクロール/練習9:ループ
         
