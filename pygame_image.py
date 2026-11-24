@@ -30,7 +30,8 @@ def main():
         if key_list[pg.K_LEFT]: #左矢印キーが押されたら
                     kk_rct.move_ip((-1,0)) #横に-1動かす
         if key_list[pg.K_RIGHT]: #右矢印キーが押されたら
-                    kk_rct.move_ip((+1,0)) #横に+1動かす
+                    kk_rct.move_ip((+2,0)) #横に+1動かす/#横に+2動かす
+        kk_rct.move_ip((-1,0)) #背景と同じ速度で左に流れる
 
         x=tmr%3200 #練習5：背景画像の横スクロール/練習9:ループ
         
